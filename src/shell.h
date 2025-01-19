@@ -7,11 +7,16 @@
 #include <stdio.h>   // printf, getline
 #include <stdlib.h>  // calloc
 #include <string.h>  // strcmp
-#include <unistd.h>  // execvp
+#include <unistd.h>  // pipe, fork, dup2, execvp, close, read
 
 #define MAXLINE 80
 #define PROMPT "osh> "
 
+/*
+fd=0 is the standard input (stdin) : READ
+fd=1 is the standard output (cout) : WRITE
+fd=2 (cerr)
+*/
 #define RD 0
 #define WR 1
 
